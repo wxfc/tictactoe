@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Indie Flower', cursive;
+}
+body {
+    background-color: #fbe8a6;
+    color: #F4976C;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    max-width: 450px;
+    background-color: #303c6c;
+    color: #B4DFE5;
+}
+.square {
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+    border: 1px solid #D2FDFF;
+    font-size: 90px;
+    text-align: center;
+    padding: 2px;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: auto;
+}
+.players {
+    text-align: center;
+    font-size: 30px;
+}
+.player1, .player2 {
+    display: inline-block;
+    padding: 15px;
+    border: 2px solid #B4DFE5;
+    margin: 30px 40px;
+}
+.currentPlayer {
+    background-color: #B4DFE5;
+}
+.reset {
+    position: fixed;
+    bottom: 20px;
+    left: 5px;
+}
