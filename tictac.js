@@ -145,4 +145,3 @@ for (var index = 0; index < gameContainer.length; index++) {
 };
 resetBtn.addEventListener('click', resetAll);
 restartBtn.addEventListener('click', restartAll);
-

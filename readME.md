@@ -18,9 +18,13 @@ I broke it down further into simple instructions of what I am trying to achieve.
 
 Next I created a function to see if a player had won after each go and then a separate function to check for a draw. The issue I ran into here, is a draw was called when the counter hit 9, however it did account for someone winning on the 9th go. So the condition i created for the draw had to be much stricter.
 
+I also was challenged with disabling the board after a win or draw, but that was quite an easy fix
+
 Once there was a functional game, I styled it up with CSS, to create a slightly retro and non-formal game.
 
 Then using DOM manipulation, I added in effects to make for a better gameplay.
+
+The hardest part of the project was taking the knowledge and skills I had gained and know where to apply it in the code, which essentially had me going around in circles.
 
 What I would do differently!
 
