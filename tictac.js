@@ -2,15 +2,38 @@ console.log('lets play');
 
 var gameContainer = document.querySelectorAll('.square');
 var resetBtn = document.querySelector('.reset');
-document.querySelector('.player1').classList.add("currentPlayer");
+var scoreOne = document.querySelector('.score1');
+var scoreTwo = document.querySelector('.score2')
 
 var resetAll = function () {
     gameContainer.forEach(function (square) {
         square.textContent = "";
+        for (var index = 0; index < gameContainer.length; index++) {
+            gameContainer[index].addEventListener('click', move)
+        };
+        document.querySelector('.player1').innerText = "Player 1";
+        document.querySelector('.player2').innerText = "Player 2";
+        if (xWins) {
+            playersGo = "O";
+            document.querySelector('.player2').classList.add("currentPlayer");
+            document.querySelector('.player1').classList.remove("currentPlayer");
+            document.querySelector(".player2").classList.remove("slide-rotate-hor-b-bck");
+            document.querySelector(".player1").classList.remove("rotate-bl");
+            xWins = false;
+            oWins = false;
+        } else if (oWins) {
+            playersGo = "X";
+            document.querySelector('.player1').classList.add("currentPlayer");
+            document.querySelector('.player2').classList.remove("currentPlayer");
+            document.querySelector(".player1").classList.remove("slide-rotate-hor-b-bck");
+            document.querySelector(".player2").classList.remove("rotate-bl");
+            xWins = false;
+            oWins = false;
+        }
     })
 }
 
-var playersGo = "X";
+var playersGo = "X"
 
 var move = function (event) {
     if (event.target.textContent !== "") {
@@ -44,26 +67,43 @@ var winners = [
     [2,4,6]
 ];
 
+var xWins = false;
+var oWins = false;
+
 var checkForWinner = function () {
     winners.forEach(function(winners) {
         if (gameContainer[winners[0]].innerHTML === "X"
         && gameContainer[winners[1]].innerHTML === "X"
         && gameContainer[winners[2]].innerHTML === "X") {
-            alert('Player 1 wins');
-            resetAll();
+            xWins = true;
+            for (var index = 0; index < gameContainer.length; index++) {
+                gameContainer[index].removeEventListener('click', move)
+            };            
+            document.querySelector('.player1').innerText = "Player 1 WINS";
+            document.querySelector('.player1').classList.add("rotate-bl");
+            document.querySelector('.player1').classList.add("currentPlayer");
+            document.querySelector('.player2').classList.remove("currentPlayer");
+            document.querySelector(".player2").classList.add("slide-rotate-hor-b-bck");
             counter = 0;
         } else if (gameContainer[winners[0]].innerHTML === "O"
         && gameContainer[winners[1]].innerHTML === "O"
         && gameContainer[winners[2]].innerHTML === "O") {
-            alert('Player 2 Wins');
-            resetAll();
+            oWins = true;
+            for (var index = 0; index < gameContainer.length; index++) {
+                gameContainer[index].removeEventListener('click', move)
+            };
+            document.querySelector('.player2').innerText = "Player 2 WINS";
+            document.querySelector(".player2").classList.add("rotate-bl");
+            document.querySelector('.player2').classList.add("currentPlayer");
+            document.querySelector('.player1').classList.remove("currentPlayer");
+            document.querySelector(".player1").classList.add("slide-rotate-hor-b-bck");
             counter = 0;
         } 
         clicker();
     });
 }
 
-counter = 0;
+var counter = 0;
 var clicker = function () {
     for (var i = 0; i < gameContainer.length; i++);
     (gameContainer[i] = "X") ||(gameContainer[i] = "O");
@@ -74,6 +114,13 @@ var clicker = function () {
         && gameContainer[winners[0]] !== "O"
         && gameContainer[winners[1]] !== "O"
         && gameContainer[winners[2]] !== "O") {
+        for (var index = 0; index < gameContainer.length; index++) {
+            gameContainer[index].removeEventListener('click', move)
+        };
+        xWins = false;
+        oWins = false;
+        document.querySelector('.player1').innerText = "DRAW";
+        document.querySelector('.player2').innerText = "DRAW";
         console.log('draw, play again');
         counter = 0;
     }
@@ -83,3 +130,5 @@ for (var index = 0; index < gameContainer.length; index++) {
     gameContainer[index].addEventListener('click', move)
 };
 resetBtn.addEventListener('click', resetAll);
+restartBtn.addEventListener('click', restartAll);
+
