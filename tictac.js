@@ -3,7 +3,8 @@ console.log('lets play');
 var gameContainer = document.querySelectorAll('.square');
 var resetBtn = document.querySelector('.reset');
 var scoreOne = document.querySelector('.score1');
-var scoreTwo = document.querySelector('.score2')
+var scoreTwo = document.querySelector('.score2');
+
 
 var resetAll = function () {
     gameContainer.forEach(function (square) {
@@ -13,6 +14,13 @@ var resetAll = function () {
         };
         document.querySelector('.player1').innerText = "Player 1";
         document.querySelector('.player2').innerText = "Player 2";
+        if (draw && playersGo === "O") {
+            document.querySelector('.player1').classList.remove("currentPlayer");
+            draw = false;
+        } else if (draw && playersGo === "X") {
+            document.querySelector('.player2').classList.remove("currentPlayer");
+            draw = false;
+        }
         if (xWins) {
             playersGo = "O";
             document.querySelector('.player2').classList.add("currentPlayer");
@@ -21,6 +29,7 @@ var resetAll = function () {
             document.querySelector(".player1").classList.remove("rotate-bl");
             xWins = false;
             oWins = false;
+            draw = false;
         } else if (oWins) {
             playersGo = "X";
             document.querySelector('.player1').classList.add("currentPlayer");
@@ -29,6 +38,7 @@ var resetAll = function () {
             document.querySelector(".player2").classList.remove("rotate-bl");
             xWins = false;
             oWins = false;
+            draw = false;
         }
     })
 }
@@ -104,6 +114,7 @@ var checkForWinner = function () {
 }
 
 var counter = 0;
+var draw = false;
 var clicker = function () {
     for (var i = 0; i < gameContainer.length; i++);
     (gameContainer[i] = "X") ||(gameContainer[i] = "O");
@@ -117,8 +128,11 @@ var clicker = function () {
         for (var index = 0; index < gameContainer.length; index++) {
             gameContainer[index].removeEventListener('click', move)
         };
+        draw = true;
         xWins = false;
         oWins = false;
+        document.querySelector('.player1').classList.add("currentPlayer");
+        document.querySelector('.player2').classList.add("currentPlayer");
         document.querySelector('.player1').innerText = "DRAW";
         document.querySelector('.player2').innerText = "DRAW";
         console.log('draw, play again');

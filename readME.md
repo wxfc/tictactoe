@@ -30,3 +30,11 @@ I also should spend more time using the console and elements on the browser.
 
 After completing a basic function to work, I would go back to the drawing board to see what could be done better and more efficient. 
 
+Unsolved problems
+
+- counter for number of wins
+- unable to select token ('X', 'O')
+- no timer
+- no data storage to keep track of scores of the page has been refreshed
+- no easter egg
+- no sounds
