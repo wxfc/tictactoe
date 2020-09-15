@@ -1,14 +1,14 @@
-Tic Tac Toe
+# Tic Tac Toe
 
 This was the first program I built. It is designed to play against someone with end goal of scoring three 'X's or 'O's in a row, column or diagonal.
 
-Technologies
+### Technologies
 
 - HTML
 - CSS
 - Javascript
 
-Approach
+### Approach
 
 Firstly, I started writing out a plan/flow of what I wanted to do, using knowledge and skills I had just gained from the course. I marked it up in HTML creating the board. I didn't add any CSS till later, as I wanted to get the game functioning. 
 
@@ -26,7 +26,7 @@ Then using DOM manipulation, I added in effects to make for a better gameplay.
 
 The hardest part of the project was taking the knowledge and skills I had gained and know where to apply it in the code, which essentially had me going around in circles.
 
-What I would do differently!
+### What I would do differently
 
 I would spend a lot more time at the drawing board and preparing the project on paper before looking at doing the code. I think understanding what to do and what I'm trying to achieve is much more important than to start coding straight away.
 
@@ -34,7 +34,7 @@ I also should spend more time using the console and elements on the browser.
 
 After completing a basic function to work, I would go back to the drawing board to see what could be done better and more efficient. 
 
-Unsolved problems
+### Unsolved problems
 
 - counter for number of wins
 - unable to select token ('X', 'O')
