@@ -2,6 +2,10 @@
 
 This was the first program I built. It is designed to play against someone with end goal of scoring three 'X's or 'O's in a row, column or diagonal.
 
+Check it out here:
+
+https://wxfc.github.io/tictactoe/
+
 ### Technologies
 
 - HTML
