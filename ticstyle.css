@@ -122,3 +122,12 @@ h1 {
     }
 }
     
+@media screen and (max-width: 500px) {
+    .container, .square {
+        float: left;
+        padding: 0;
+        width: 95%;
+        margin: 3%;
+    }
+
+}
